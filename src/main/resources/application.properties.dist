@@ -1,0 +1,7 @@
+# Rename the parameters with your credentials. These are dummy.
+
+spring.datasource.url=jdbc:mysql://localhost:3306/emreperde
+spring.datasource.username=root
+spring.datasource.password=123456
+
+google.maps.api_key=test # You need Maps API account for accessing map on the page. Otherwise remove map from page.

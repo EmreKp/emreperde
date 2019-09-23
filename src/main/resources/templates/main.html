@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Emre Perde Mefruşat</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lightbox/dist/css/lightbox.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body data-spy="scroll" data-target=".navbar" style="position: relative;">
+<!-- relative kısmı scrollspy için-->
+<!-- nav of single page-->
+<nav class="navbar navbar-inverse">
+    <div class="navbar-header"><a class="navbar-brand" href="#">Emre Perde</a></div>
+    <ul class="nav nav-pills nav-justified">
+        <li><a href="#hakkimizda">HAKKIMIZDA</a></li>
+        <li><a href="#urunler">ÜRÜNLER</a></li>
+        <li><a href="#iletisim">İLETİŞİM</a></li>
+    </ul>
+</nav>
+<div class="container well well-lg" id="hakkimizda">
+    <h1>HAKKIMIZDA</h1>
+    <p>Mağazamız 20 yılı aşkın süredir Kadıköy'de hizmet sunmaktadır.</p>
+    <p>Başta TAÇ olmak üzere pek çok önemli markalar bulundurmaktayız.</p>
+    <p>Perdenin yanı sıra nevresim ve masa örtüsü gibi çeşitli tekstil ürünleri de sunmaktayız.</p>
+</div>
+<div class="container well well-lg" id="urunler">
+    <h1>ÜRÜNLER</h1>
+</div>
+<div class="container well well-lg" id="iletisim">
+    <h1>İLETİŞİM</h1>
+    <div id="harita"></div>
+    <form action="/send" method="post" th:object="${message}">
+        <div class="form-group row"><label class="control-label col-sm-4">İsim:</label>
+            <div class="col-sm-6"><input class="form-control" th:field="*{name}" required></div>
+        </div>
+        <div class="form-group row"><label class="control-label col-sm-4">E-mail:</label>
+            <div class="col-sm-6"><input class="form-control" th:field="*{email}"></div>
+        </div>
+        <div class="form-group row"><label class="control-label col-sm-4">Mesajınız:</label>
+            <div class="col-sm-7">
+                <textarea class="form-control" th:field="*{text}" required></textarea>
+            </div>
+        </div>
+        <button class="btn btn-success" type="submit">GÖNDER</button>
+        <div class="adrestel">
+            <p>Osmanağa Mah. Arayıcıbaşı Sok. No: 31/3 Kadıköy/İSTANBUL</p>
+            <p><a href="tel:+905423754937">0542 375 49 37</a> - <a href="mailto:admin@emremefrusat.com">admin@emremefrusat.com</a></p>
+        </div>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="lightbox/dist/js/lightbox.min.js"></script>
+<script src="js/script.js"></script>
+<script th:src="@{'https://maps.googleapis.com/maps/api/js?key=' + ${mapsKey} + '&amp;callback=mapaBak'}" async defer></script>
+</body>
+
+</html>
